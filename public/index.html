@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- easyui的样式，可以选择其他主题 -->
+    <link rel="stylesheet" href="./lib/jquery-easyui-1.7.0/themes/bootstrap/easyui.css">
+    <!-- easyui的图标css文件 -->
+    <link rel="stylesheet" href="./lib/jquery-easyui-1.7.0/themes/icon.css">
+    <!-- easyui 依赖jq -->
+    <script src="./lib/jquery-easyui-1.7.0/jquery.min.js"></script>
+    <!-- jq easyui的js脚本 -->
+    <script src="./lib/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+    <!-- 引用语言包 -->
+    <script src="./lib/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+    <title>Document</title>
+</head>
+<!-- <div id="app">
+
+    <input type="text" v-model='text'>
+    <button v-on:click='click'>提交</button>
+    <input type="text1" v-model='text1' name="" id="">
+    <button v-on:click='click1'>tijiao</button>
+</div> -->
+<form id="ff" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input class="easyui-validatebox" type="text" name="name" data-options="required:true" />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" />
+    </div>
+</form>
+
+<body>
+    <!-- <script src="./vue.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+$('#ff').form({
+    url:123,
+    onSubmit: function(){
+		// do some check
+		// return false to prevent submit;
+    },
+    success:function(data){
+		alert(data)
+    }
+});
+// submit the form
+$('#ff').submit();
+
+$('#ff').form('submit', {
+    url:123,
+    onSubmit: function(){
+		// do some check
+		// return false to prevent submit;
+    },
+    success:function(data){
+		alert(data)
+    }
+});
+$('#ff').form('submit', {
+    url:123,
+    onSubmit: function(param){
+		param.p1 = 'value1';
+		param.p2 = 'value2';
+    }
+});
+
+        // var app = new Vue({
+        //     el: "#app",
+        //     data: {
+        //         text: '',
+        //         text1: ''
+        //     },
+        //     methods: {
+        //         click() {
+        //             let that = this
+        //             console.log(that.text)
+        //             axios.post("/article", {
+        //                 text: that.text
+        //             })
+        //                 .then(function (response) {
+        //                     console.log(response);
+        //                 })
+        //                 .catch(function (error) {
+        //                     console.log(error);
+        //                 });
+        //         },
+        //         click1() {
+        //             let that = this
+        //             console.log(that.text)
+        //             axios.post("/article1", {
+        //                 text1: that.text1
+        //             })
+        //                 .then(function (response) {
+        //                     console.log(response);
+        //                 })
+        //                 .catch(function (error) {
+        //                     console.log(error);
+        //                 });
+        //         },
+        //         get() {
+        //             let that = this
+        //             console.log(that.text)
+        //             axios.get("/get", {})
+        //                 .then(function (response) {
+        //                     console.log(response);
+        //                 })
+        //                 .catch(function (error) {
+        //                     console.log(error);
+        //                 });
+        //         }
+        //     },
+        //     mounted() {
+        //         this.get()
+        //     }
+        // });
+
+
+    </script>
+</body>
+
+</html>
