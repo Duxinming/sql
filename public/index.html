@@ -16,6 +16,7 @@
     <!-- 引用语言包 -->
     <script src="./lib/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
     <title>Document</title>
+
 </head>
 <!-- <div id="app">
 
@@ -24,51 +25,50 @@
     <input type="text1" v-model='text1' name="" id="">
     <button v-on:click='click1'>tijiao</button>
 </div> -->
-<form id="ff" method="post">
-    <div>
-        <label for="name">Name:</label>
-        <input class="easyui-validatebox" type="text" name="name" data-options="required:true" />
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" />
-    </div>
-</form>
+<table id="personManage"></table>
 
 <body>
     <!-- <script src="./vue.min.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-$('#ff').form({
-    url:123,
-    onSubmit: function(){
-		// do some check
-		// return false to prevent submit;
-    },
-    success:function(data){
-		alert(data)
-    }
-});
-// submit the form
-$('#ff').submit();
 
-$('#ff').form('submit', {
-    url:123,
-    onSubmit: function(){
-		// do some check
-		// return false to prevent submit;
-    },
-    success:function(data){
-		alert(data)
-    }
-});
-$('#ff').form('submit', {
-    url:123,
-    onSubmit: function(param){
-		param.p1 = 'value1';
-		param.p2 = 'value2';
-    }
-});
+        var objTable = $("#personManage");
+        objTable.datagrid({
+            pagination: true,
+            url: '${ctx}/cpv3QuotationCtrl/query?RndId=' + Math.random(),
+            loadFilter: pagerFilter,
+            queryParams: buildParams(),
+            toolbar: "#toolbar",
+            rownumbers: true,
+            width: Number($("fieldset").css("width").replace("px", "")) + 20,
+            columns: [[
+                { field: 'MD5_SIGNATURE', hidden: true },
+                { field: 'TMPE', title: '选择', align: 'center', width: 50, formatter: formatter_Select },
+                { field: 'QUOTATION_NAME', title: '报价单名称', width: 100, align: 'center' },
+                { field: 'QUOTATION_STATUS', title: '报价单状态', width: 100, align: 'center', formatter: formatter_common_quotation },
+                { field: 'TOTAL_PLAN_COST', title: '总预估成本', width: 100, align: 'center' },
+                { field: 'QUOTATION_AMOUNT', title: '报价总金额', width: 100, align: 'center' },
+                { field: 'QUOTATION_VERSION', title: '报价单版本', width: 100, align: 'center' },
+                { field: 'CREATE_USER_ID', title: '创建人', width: 100, align: 'center' },
+                { field: 'CREATE_TIME', title: '创建时间', width: 100, align: 'center', formatter: formatDatebox },
+                { field: 'MODIFY_TIME', title: '最后修改时间', width: 100, align: 'center', formatter: formatDatebox }
+            ]],
+            fitColumns: true　//自适应宽度、可以水平滚动
+        });
+
+        /**创建查询参数**/
+        function buildParams() {
+            var name = $("#name").val();
+            var projectId = "${projectId}";
+            var quotation_type = $("#quotation_type").combobox("getValue");
+            return {
+                name: name,
+                projectId: projectId,
+                quotation_type: quotation_type
+            };
+        }
+
+        
 
         // var app = new Vue({
         //     el: "#app",

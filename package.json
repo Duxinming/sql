@@ -9,10 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.0.1",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+    "echarts": "^4.2.1",
     "express": "^4.17.1",
+    "multer": "^1.4.1",
     "pg": "^7.11.0",
-    "query": "^0.2.0"
+    "query": "^0.2.0",
+    "xlsx": "^0.14.3"
   }
 }
