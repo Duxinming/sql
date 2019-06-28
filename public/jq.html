@@ -69,12 +69,44 @@
             onclick="reject()">撤销更改</a>
     </div>
     <div>
-        上传文件 ： <input type="file" name="file" id="fileId" />
-        <button type="submit" name="btn" value="提交" id="btnId" onclick="check()">提交</button>
+        上传文件 ：
+        <input type="file" name="file" id="fileId" onchange="upload(this)" />
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://oss.sheetjs.com/js-xlsx/xlsx.full.min.js"></script>
     <script type="text/javascript">
         var editIndex = undefined;
+        function upload(e) {
+            if (!e.files) {
+                alert("不能为空");
+                return;
+            }
+            const file = e.files[0];
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                console.log(event);
+                const fileArrayBuffer = event.target.result;
+                console.log(fileArrayBuffer);
+                let fileXlsx = XLSX.read(btoa(fixdata(fileArrayBuffer)), {
+                    type: "base64"
+                });
+                console.log(fileXlsx.Sheets);
+            };
+            reader.readAsArrayBuffer(file);
+        }
+        function fixdata(data) {
+            //文件流转BinaryString
+            var o = "",
+                l = 0,
+                w = 10240;
+            for (; l < data.byteLength / w; ++l)
+                o += String.fromCharCode.apply(
+                    null,
+                    new Uint8Array(data.slice(l * w, l * w + w))
+                );
+            o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+            return o;
+        }
         function endEditing() {
             if (editIndex == undefined) { return true }
             if ($('#dg').datagrid('validateRow', editIndex)) {

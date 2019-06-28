@@ -3,7 +3,7 @@ let bodyParser = require('body-parser'); // 引入 body-parser 中间件
 var multer = require('multer')
 var upload = multer({ dest: 'uploads/' })
 let XLSX = require('xlsx'); // 引入解析模块
-const workbook = XLSX.readFile('工作簿1.xlsx');
+const workbook = XLSX.readFile('model.xlsx');
 var pg = require('pg');
 //数据库配置
 var conString = "postgres://postgres:123456@localhost/dxm"; //postgres://用户名：密码@localhost/数据库名
