@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title></title>
-    <!-- easyui的样式，可以选择其他主题 -->
-    <link rel="stylesheet" href="./lib/jquery-easyui-1.7.0/themes/bootstrap/easyui.css">
-    <!-- easyui的图标css文件 -->
-    <link rel="stylesheet" href="./lib/jquery-easyui-1.7.0/themes/icon.css">
-    <!-- easyui 依赖jq -->
-    <script src="./lib/jquery-easyui-1.7.0/jquery.min.js"></script>
-    <!-- jq easyui的js脚本 -->
-    <script src="./lib/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
-    <!-- 引用语言包 -->
-    <script src="./lib/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
-</head>
+    <!-- <link
+      rel="stylesheet"
+      href="./lib/jquery-easyui-1.7.0/themes/bootstrap/easyui.css"
+    />
+    <link rel="stylesheet" href="./lib/jquery-easyui-1.7.0/themes/icon.css" /> -->
+  </head>
 
-<body>
-    <h2>学生信息录入</h2>
-    <div style="margin:20px 0;"></div>
+  <body>
+    <!-- <h2>学生信息录入</!-->
+    <!-- <div style="margin:20px 0;"></div>
 
-    <table id="dg" class="easyui-datagrid" title="信息录入" style="width:565px;height:auto" data-options="
+    <table
+      id="dg"
+      class="easyui-datagrid"
+      title="信息录入"
+      style="width:565px;height:auto"
+      data-options="
                     iconCls: 'icon-edit',
                     singleSelect: false,
                     toolbar: '#tb',
@@ -28,14 +27,22 @@
                     data: null,
                     method: 'get',
                     onClickRow: onClickRow
-                ">
-        <thead>
-            <tr>
-                <th data-options="field:'name',width:80,align:'right',editor:{type:'textbox'}">
-                    姓名</th>
-                <th data-options="field:'gender',width:80,align:'right',editor:{type:'textbox',options:{precision:1}}">
-                    性别</th>
-                <th data-options="field:'college',width:100,align:'right',
+                "
+    >
+      <thead>
+        <tr>
+          <th
+            data-options="field:'name',width:80,align:'right',editor:{type:'textbox'}"
+          >
+            姓名
+          </th>
+          <th
+            data-options="field:'gender',width:80,align:'right',editor:{type:'textbox',options:{precision:1}}"
+          >
+            性别
+          </th>
+          <th
+            data-options="field:'college',width:100,align:'right',
                             formatter:function(value,row){
                                 return row.gender;
                             },
@@ -44,179 +51,236 @@
                                 options:{
                                     required:true
                                 }
-                            }">学院</th>
-                <th data-options="field:'studentid',width:80,align:'right',editor:{type:'textbox'}">
-                    学号</th>
-                <th data-options="field:'age',width:80,align:'right',editor:{type:'textbox'}">年龄
-                </th>
-                <th data-options="field:'class',width:80,align:'right',editor:{type:'textbox'}">
-                    班级</th>
-                <th data-options="field:'ck',checkbox:true"></th>
-            </tr>
-        </thead>
+                            }"
+          >
+            学院
+          </th>
+          <th
+            data-options="field:'studentid',width:80,align:'right',editor:{type:'textbox'}"
+          >
+            学号
+          </th>
+          <th
+            data-options="field:'age',width:80,align:'right',editor:{type:'textbox'}"
+          >
+            年龄
+          </th>
+          <th
+            data-options="field:'class',width:80,align:'right',editor:{type:'textbox'}"
+          >
+            班级
+          </th>
+          <th data-options="field:'ck',checkbox:true"></th>
+        </tr>
+      </thead>
     </table>
 
     <div id="tb" style="height:auto">
-        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true"
-            onclick="append()">添加</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true"
-            onclick="removeit()">删除</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true"
-            onclick="join()">倒入表格数据</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"
-            onclick="accept()">保存</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true"
-            onclick="reject()">撤销更改</a>
-    </div>
+      <a
+        href="javascript:void(0)"
+        class="easyui-linkbutton"
+        data-options="iconCls:'icon-add',plain:true"
+        onclick="append()"
+        >添加</a
+      >
+      <a
+        href="javascript:void(0)"
+        class="easyui-linkbutton"
+        data-options="iconCls:'icon-remove',plain:true"
+        onclick="removeit()"
+        >删除</a
+      >
+      <a
+        href="javascript:void(0)"
+        class="easyui-linkbutton"
+        data-options="iconCls:'icon-add',plain:true"
+        onclick="join()"
+        >倒入表格数据</a
+      >
+      <a
+        href="javascript:void(0)"
+        class="easyui-linkbutton"
+        data-options="iconCls:'icon-save',plain:true"
+        onclick="accept()"
+        >保存</a
+      >
+      <a
+        href="javascript:void(0)"
+        class="easyui-linkbutton"
+        data-options="iconCls:'icon-undo',plain:true"
+        onclick="reject()"
+        >撤销更改</a
+      >
+    </div> -->
     <div>
-        上传文件 ： <input type="file" name="file" id="fileId" />
-        <button type="submit" name="btn" value="提交" id="btnId" onclick="check()">提交</button>
+      上传文件 ：
+      <input type="file" name="file" id="fileId" onchange="upload(this)" />
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./lib/jquery-easyui-1.7.0/jquery.min.js"></script>
+    <script src="./lib/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+    <script src="./lib/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script> -->
+    <script src="http://oss.sheetjs.com/js-xlsx/xlsx.full.min.js"></script>
     <script type="text/javascript">
-        var editIndex = undefined;
-        function endEditing() {
-            if (editIndex == undefined) { return true }
-            if ($('#dg').datagrid('validateRow', editIndex)) {
-                $('#dg').datagrid('endEdit', editIndex);
-                editIndex = undefined;
-                return true;
-            } else {
-                return false;
-            }
+      var editIndex = undefined;
+      function upload(e) {
+        if (!e.files) {
+          alert("不能为空");
+          return;
         }
-        function onClickRow(index) {
-            if (editIndex != index) {
-                if (endEditing()) {
-                    $('#dg').datagrid('selectRow', index)
-                        .datagrid('beginEdit', index);
-                    editIndex = index;
-                } else {
-                    $('#dg').datagrid('selectRow', editIndex);
-                }
-            }
+        const file = e.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+          console.log(event);
+          const fileArrayBuffer = event.target.result;
+          console.log(fileArrayBuffer);
+          let fileXlsx = XLSX.read(btoa(fixdata(fileArrayBuffer)), {
+            type: "base64"
+          });
+          console.log(fileXlsx.Sheets);
+        };
+
+        reader.readAsArrayBuffer(file);
+      }
+
+      function fixdata(data) {
+        //文件流转BinaryString
+        var o = "",
+          l = 0,
+          w = 10240;
+        for (; l < data.byteLength / w; ++l)
+          o += String.fromCharCode.apply(
+            null,
+            new Uint8Array(data.slice(l * w, l * w + w))
+          );
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+      }
+
+      function endEditing() {
+        if (editIndex == undefined) {
+          return true;
         }
-        function append() {
-            if (endEditing()) {
-                $('#dg').datagrid('appendRow', { status: '' });
-                editIndex = $('#dg').datagrid('getRows').length - 1;
-                $('#dg').datagrid('selectRow', editIndex)
-                    .datagrid('beginEdit', editIndex);
-            }
+        if ($("#dg").datagrid("validateRow", editIndex)) {
+          $("#dg").datagrid("endEdit", editIndex);
+          editIndex = undefined;
+          return true;
+        } else {
+          return false;
         }
-        function removeit() {
-            var check = $('#dg').datagrid('getChecked')
-            if (check.length !== 0) {
-                check.forEach(element => {
-                    var num = $('#dg').datagrid('getRowIndex', element)
-                    $('#dg').datagrid('cancelEdit', num)
-                        .datagrid('deleteRow', num);
-
-                    editIndex = undefined;
-                });
-
-            }
-            else {
-
-            }
-
+      }
+      function onClickRow(index) {
+        if (editIndex != index) {
+          if (endEditing()) {
+            $("#dg")
+              .datagrid("selectRow", index)
+              .datagrid("beginEdit", index);
+            editIndex = index;
+          } else {
+            $("#dg").datagrid("selectRow", editIndex);
+          }
         }
-        function accept() {
-
-            if (endEditing()) {
-                let add = $('#dg').datagrid('getChanges', 'inserted');
-                let del = $('#dg').datagrid('getChanges', 'deleted');
-                let update = $('#dg').datagrid('getChanges', 'updated');
-                if (add.length !== 0) {
-                    console.log(add)
-                    add.forEach(element => {
-                        element._id = new Date().getTime()
-                        axios.post('/article', {
-                            arr: element
-                        })
-                        $('#dg').datagrid('acceptChanges');
-                    });
-                } if (del.length !== 0) {
-                    console.log(del)
-                    axios.post('/delete', {
-                        arr: del
-                    })
-                    $('#dg').datagrid('acceptChanges');
-                } if (update.length !== 0) {
-                    console.log(update)
-                    axios.post('/update', {
-                        arr: update
-                    })
-                    $('#dg').datagrid('acceptChanges');
-
-                }
-            }
+      }
+      function append() {
+        if (endEditing()) {
+          $("#dg").datagrid("appendRow", { status: "" });
+          editIndex = $("#dg").datagrid("getRows").length - 1;
+          $("#dg")
+            .datagrid("selectRow", editIndex)
+            .datagrid("beginEdit", editIndex);
         }
-        function reject() {
-            $('#dg').datagrid('rejectChanges');
+      }
+      function removeit() {
+        var check = $("#dg").datagrid("getChecked");
+        if (check.length !== 0) {
+          check.forEach(element => {
+            var num = $("#dg").datagrid("getRowIndex", element);
+            $("#dg")
+              .datagrid("cancelEdit", num)
+              .datagrid("deleteRow", num);
+
             editIndex = undefined;
+          });
+        } else {
         }
-        function getChanges() {
-            var rows = $('#dg').datagrid('getRows');
-            var index = $('#dg').datagrid('getRowIndex', {
-                name: "a"
+      }
+      function accept() {
+        if (endEditing()) {
+          let add = $("#dg").datagrid("getChanges", "inserted");
+          let del = $("#dg").datagrid("getChanges", "deleted");
+          let update = $("#dg").datagrid("getChanges", "updated");
+          if (add.length !== 0) {
+            console.log(add);
+            add.forEach(element => {
+              element._id = new Date().getTime();
+              axios.post("/article", {
+                arr: element
+              });
+              $("#dg").datagrid("acceptChanges");
             });
-            var scr = $('#dg').datagrid('scrollTo');
-            console.log(index)
-            alert(rows.length + ' rows are changed!');
-        }
-        function join() {
-            axios.get('/get', {
-                params: {
-                    type: 1
-                }
-            }).then(function (response) {
-                console.log(response.data);
-                response.data.forEach(element => {
-                    let name = element.name
-                    let college = element.college
-                    let gender = element.gender
-                    let clas = element.class
-                    let genderid = element.genderid
-                    let age = element.age
-                    let studentid = element.studentid
-                    $('#dg').datagrid('appendRow', {
-                        name: name,
-                        college: college,
-                        gender: gender,
-                        class: clas,
-                        genderid: genderid,
-                        age: age,
-                        studentid: studentid
-                    });
-                });
-            }).catch(function (error) {
-                console.log(error);
+          }
+          if (del.length !== 0) {
+            console.log(del);
+            axios.post("/delete", {
+              arr: del
             });
+            $("#dg").datagrid("acceptChanges");
+          }
+          if (update.length !== 0) {
+            console.log(update);
+            axios.post("/update", {
+              arr: update
+            });
+            $("#dg").datagrid("acceptChanges");
+          }
         }
-        function check() {
-            var objFile = document.getElementById("fileId");
-            if (objFile.value == "") {
-                alert("不能为空");
-                return false;
+      }
+      function reject() {
+        $("#dg").datagrid("rejectChanges");
+        editIndex = undefined;
+      }
+      function getChanges() {
+        var rows = $("#dg").datagrid("getRows");
+        var index = $("#dg").datagrid("getRowIndex", {
+          name: "a"
+        });
+        var scr = $("#dg").datagrid("scrollTo");
+        console.log(index);
+        alert(rows.length + " rows are changed!");
+      }
+      function join() {
+        axios
+          .get("/get", {
+            params: {
+              type: 1
             }
-
-            console.log(objFile.files[0].size); // 文件字节数
-
-            var files = $('#fileId').prop('files');//获取到文件列表
-            if (files.length == 0) {
-                alert('请选择文件');
-            } else {
-                var reader = new FileReader();//新建一个FileReader
-                reader.readAsText(files[0], "UTF-8");//读取文件 
-                reader.onload = function (evt) { //读取完文件之后会回来这里
-                    var fileString = evt.target.result; // 读取文件内容
-                    console.log(fileString)
-                }
-            }
-
-        }
+          })
+          .then(function(response) {
+            console.log(response.data);
+            response.data.forEach(element => {
+              let name = element.name;
+              let college = element.college;
+              let gender = element.gender;
+              let clas = element.class;
+              let genderid = element.genderid;
+              let age = element.age;
+              let studentid = element.studentid;
+              $("#dg").datagrid("appendRow", {
+                name: name,
+                college: college,
+                gender: gender,
+                class: clas,
+                genderid: genderid,
+                age: age,
+                studentid: studentid
+              });
+            });
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
     </script>
-</body>
-
+  </body>
 </html>
