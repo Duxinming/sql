@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="../node_modules/echarts/dist/echarts.min.js"></script>
+    <script src="./echarts.min.js"></script>
+    <script src="./lib/jquery-easyui-1.7.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
         // 指定图表的配置项和数据
         option = {
             title: {
-                text: 'bug分布',
+                text: '数据分布',
                 x: 'left'
             },
             tooltip: {
@@ -38,12 +39,35 @@
                     type: 'pie',
                     radius: '80%',
                     center: ['60%', '60%'],
-                    data: [
-                        { value: 1, name: '后台_bug' },
-                        { value: 3, name: 'IOS_bug' },
-                        { value: 7, name: 'Android_bug' },
-                        { value: 4, name: 'H5_bug' },
-                    ],
+                    data: (function () {
+                        var arr = [];
+                        $.ajax({
+                            type: "get",
+                            async: false, //同步执行
+                            url: "/getarr",
+                            data: {},
+                            dataType: "json", //返回数据形式为json
+                            success: function (result) {
+                                console.log(result)
+                                if (result) {
+                                    for (var i = 0; i < result.length; i++) {
+                                        //alert(result.listCont[i]+" "+result.listName[i]);
+                                        arr.push({
+                                            name: result[i].name,
+                                            value: result[i].value
+                                        });
+
+                                    }
+                                    console.log(arr)
+                                }
+                            },
+                            error: function (errorMsg) {
+                                console.log(errorMsg)
+                                myChart.hideLoading();
+                            }
+                        })
+                        return arr;
+                    })(),
                     itemStyle: {
                         emphasis: {
                             shadowBlur: 10,

@@ -164,6 +164,14 @@ client.connect(function (error, results) {
 
   })
 
+  //echarts
+  app.get('/getarr', function(req, res){
+    selectSQLString = "SELECT * FROM ech";
+      //客户端连接，进行数据查询
+      client.query(selectSQLString, function (error, results) {
+        res.json(results.rows)
+      })
+  })
 });
 
 app.listen(3008, function () { console.log('服务器正在监听 3008 端口') });
